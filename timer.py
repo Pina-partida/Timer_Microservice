@@ -43,7 +43,7 @@ async def upload_time(
 async def fetch_time(timer_id: int):
     timer = timers.get(timer_id)
     # if timer id not found
-    if not timer_id:
+    if not timer:
         return {"error": "Timer not found"}
     # if id is found yes
     timer_count = time.perf_counter() - timer["start_time"]
@@ -60,7 +60,7 @@ async def update_time(timer_id: int, duration: int):
     # if timer id not found
     if not timer:
         return {"error": "Timer not found"}
-    
+
     else:
         timer["completed"] = False
         timer["duration"] = duration
